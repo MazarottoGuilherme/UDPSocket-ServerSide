@@ -1,0 +1,4 @@
+#ifndef UDPSOCKET_TIME_H
+#define UDPSOCKET_TIME_H
+
+#endif //UDPSOCKET_TIME_H
