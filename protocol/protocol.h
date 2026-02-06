@@ -15,7 +15,8 @@ typedef struct {
 
 typedef struct {
     uint8_t type;
-    char username[16];
+    char email[16];
+    char password[64];
 } PacketLogin;
 
 typedef struct {
