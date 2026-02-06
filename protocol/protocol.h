@@ -7,6 +7,7 @@ typedef enum {
     PKT_STATE = 4,
     PKT_LOGIN_ACK = 5,
     PKT_LOGOUT = 6,
+    PKT_PONG = 7,
 } PacketType;
 
 typedef struct {
@@ -32,6 +33,16 @@ typedef struct {
     uint8_t type;
     int dx, dy;
 } PacketInput;
+
+typedef struct {
+    uint8_t type;
+    uint32_t timestamp;
+} PacketPing;
+
+typedef struct {
+    uint8_t type;
+    uint32_t timestamp;
+} PacketPong;
 
 typedef struct {
     uint8_t type;

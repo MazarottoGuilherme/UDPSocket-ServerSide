@@ -1,8 +1,6 @@
 #include "game.h"
-
 #include <stdio.h>
 #include <arpa/inet.h>
-
 #include "player.h"
 #include "../protocol/protocol.h"
 #include "../net/net.h"
@@ -66,10 +64,13 @@ void handle_packet(char *data, ssize_t size, struct sockaddr_in *from) {
         }
 
         case PKT_PING: {
-            int id = find_player(from);
-            if (id >= 0) {
-                players[id].last_seen = time(NULL);
-            }
+            PacketPing* ping = (PacketPing*)data;
+
+            PacketPong pong;
+            pong.type = PKT_PONG;
+            pong.timestamp = ping->timestamp;
+
+            net_send_to(&pong, sizeof(pong), from);
             break;
         }
         case PKT_LOGOUT: {
@@ -83,8 +84,6 @@ void handle_packet(char *data, ssize_t size, struct sockaddr_in *from) {
 
             break;
         }
-
-
         default:
             break;
     }
