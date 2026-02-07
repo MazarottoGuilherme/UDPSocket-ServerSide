@@ -1,0 +1,26 @@
+*.o
+*.obj
+*.so
+*.a
+*.exe
+*.out
+*.dll
+
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+build/
+bin/
+Debug/
+Release/
+
+*.log
+*.tmp
+
+*.swp         # Vim swap
+*.swo
+*~
+.idea/        # CLion, IntelliJ
+.vscode/      # VSCode
