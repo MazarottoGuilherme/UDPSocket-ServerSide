@@ -15,7 +15,8 @@ add_executable(UDPSocket src/main.c
         src/game/game.c
         src/game/game.h
         src/util/time.c
-        src/util/time.h)
+        src/util/time.h
+        )
 
 target_include_directories(UDPSocket PRIVATE ${LIBPQ_INCLUDE_DIRS})
 target_link_libraries(UDPSocket PRIVATE ${LIBPQ_LIBRARIES})
